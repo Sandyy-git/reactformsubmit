@@ -1,7 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button, Form, FormLabel } from 'react-bootstrap';
 import './Formcreation.css';
 function Formcreation(){
+
+    const [firstname, setFirstName] = useState("");
+    const [lastname, setLastName] = useState("");
+    const [email, setEmail] = useState("");
+    const [contact, setContact ] = useState("");
+    const [gender, setGender ] = useState("");
+    const [subjects, setSubjects ] = useState("");
+    const [resume, setresume ] = useState("");
+    const [url, setUrl ] = useState("");
+    const [about, setAbout ] = useState("");
+    // console.log(firstname);
     return(
         <>
          <div className="centered-form">
@@ -10,40 +21,55 @@ function Formcreation(){
                     <Form>
                         <Form.Group controlId="formBasicfirstname">
                             <Form.Label >First Name</Form.Label>
-                            <Form.Control size="sm" type="text" placeholder="Enter first name" name="firstname"></Form.Control>
+                            <Form.Control size="sm" type="text" placeholder="Enter first name" name="firstname"
+                            value={firstname}
+                            onChange={(e) =>{
+                                setFirstName(e.target.value)
+                            }}
+                             ></Form.Control>
                         </Form.Group>
 
                         <Form.Group controlId="formBasiclastname">
                             <Form.Label >Last Name</Form.Label>
-                            <Form.Control size="sm" type="text" placeholder="Enter last name" name="lastname"></Form.Control>
+                            <Form.Control size="sm" type="text" placeholder="Enter last name" name="lastname"
+                            value={lastname}
+                            onChange={(e)=>{
+                                setLastName(e.target.value)
+                            }}
+                            ></Form.Control>
                         </Form.Group>
 
                         <Form.Group controlId="formBasicemail">
                             <Form.Label >Enter Email</Form.Label>
-                            <Form.Control size="sm" type="text" placeholder="Enter Email" name="email"></Form.Control>
+                            <Form.Control size="sm" type="text" placeholder="Enter Email" name="email"
+                            value={email}
+                            onChange={(e)=>{
+                                setEmail(e.target.value)
+                            }}
+                            ></Form.Control>
                         </Form.Group>
 
                         <Form.Group controlId="formBasiccontact">
                             <Form.Label >Contact</Form.Label>
-                            <Form.Control size="sm" type="text" placeholder="Enter Mobile number" name="contact" ></Form.Control>
+                            <Form.Control size="sm" type="tel" placeholder="Enter Mobile number" name="contact" ></Form.Control>
                         </Form.Group>
 
                         <Form.Group controlId="formBasicgender">
                             <Form.Label>Gender</Form.Label>
                                 <div className="form-choice">
-                                    <Form.Check type="radio" label="Male" />
-                                    <Form.Check type="radio" label="Female" />
-                                    <Form.Check type="radio" label="Other" />
+                                    <Form.Check type="radio" name="gender" id="male" label="Male" />
+                                    <Form.Check type="radio" name="gender" id="female" label="Female" />
+                                    <Form.Check type="radio" name="gender" id="other" label="Other" />
                                 </div>
                         </Form.Group>
 
                         <Form.Group controlId="formBasicsubject">
                             <Form.Label>Your best subject</Form.Label>
                                 <div className="form-choice">
-                                    <Form.Check type="checkbox" label="English" />
-                                    <Form.Check type="checkbox" label="Maths" />
-                                    <Form.Check type="checkbox" label="Physics" />
-                                    <Form.Check type="checkbox" label="Science" />
+                                    <Form.Check type="checkbox" name="lang" id="english" label="English" />
+                                    <Form.Check type="checkbox" name="lang" id="maths" label="Maths" />
+                                    <Form.Check type="checkbox" name="lang" id="physics" label="Physics" />
+                                    <Form.Check type="checkbox" name="lang" id="science" label="Science" />
                                 </div>
                         </Form.Group>
 
